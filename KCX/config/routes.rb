@@ -1,4 +1,21 @@
 KCX::Application.routes.draw do
+  # Routes for the Theme resource:
+  # CREATE
+  get '/themes/new', controller: 'themes', action: 'new', as: 'new_theme'
+  post '/themes', controller: 'themes', action: 'create'
+
+  # READ
+  get '/themes', controller: 'themes', action: 'index', as: 'themes'
+  get '/themes/:id', controller: 'themes', action: 'show', as: 'theme'
+
+  # UPDATE
+  get '/themes/:id/edit', controller: 'themes', action: 'edit', as: 'edit_theme'
+  put '/themes/:id', controller: 'themes', action: 'update'
+
+  # DELETE
+  delete '/themes/:id', controller: 'themes', action: 'destroy'
+  #------------------------------
+
   # Routes for the Costume resource:
   # CREATE
   get '/costumes/new', controller: 'costumes', action: 'new', as: 'new_costume'

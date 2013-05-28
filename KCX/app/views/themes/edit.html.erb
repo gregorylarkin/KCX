@@ -1,0 +1,11 @@
+<h1>Editing Theme #<%= @theme.id %></h1>
+
+
+<%= form_tag(theme_url(@theme), method: 'put') do %>
+
+  
+  <div>
+    <%= submit_tag "Update Theme" %>
+  </div>
+
+<% end %>

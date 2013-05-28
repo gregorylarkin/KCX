@@ -1,0 +1,26 @@
+<h1>Themes</h1>
+
+<p><%= link_to 'Add a New Theme', new_theme_url %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @themes.each do |theme| %>
+    <tr>
+  
+      <td><%= link_to 'Show', theme_url(theme) %></td>
+      <td><%= link_to 'Edit', edit_theme_url(theme) %></td>
+      <td><%= link_to 'Destroy', theme_url(theme), method: 'delete', data: { confirm: "Do you really want to delete this theme?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
