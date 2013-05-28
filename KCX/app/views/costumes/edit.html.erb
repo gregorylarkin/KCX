@@ -1,0 +1,11 @@
+<h1>Editing Costume #<%= @costume.id %></h1>
+
+
+<%= form_tag(costume_url(@costume), method: 'put') do %>
+
+  
+  <div>
+    <%= submit_tag "Update Costume" %>
+  </div>
+
+<% end %>

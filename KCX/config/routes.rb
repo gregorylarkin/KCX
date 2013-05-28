@@ -1,4 +1,21 @@
 KCX::Application.routes.draw do
+  # Routes for the Costume resource:
+  # CREATE
+  get '/costumes/new', controller: 'costumes', action: 'new', as: 'new_costume'
+  post '/costumes', controller: 'costumes', action: 'create'
+
+  # READ
+  get '/costumes', controller: 'costumes', action: 'index', as: 'costumes'
+  get '/costumes/:id', controller: 'costumes', action: 'show', as: 'costume'
+
+  # UPDATE
+  get '/costumes/:id/edit', controller: 'costumes', action: 'edit', as: 'edit_costume'
+  put '/costumes/:id', controller: 'costumes', action: 'update'
+
+  # DELETE
+  delete '/costumes/:id', controller: 'costumes', action: 'destroy'
+  #------------------------------
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
