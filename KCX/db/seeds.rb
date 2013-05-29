@@ -5,3 +5,26 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Costume.destroy_all
+
+data = [{description: "Pirate"}, { description: "Surfer Dude"}]
+
+data.each do |costume_info|
+  m = Costume.new
+  m.description = costume_info[:description]
+  m.save
+end
+
+puts "There are now #{Costume.count} costumes in the database"
+
+Theme.destroy_all
+theme_data = [{name: "90s"},
+                { name: "White Party"}]
+
+theme_data.each do |theme_info|
+  t = Theme.new
+  t.name = theme_info[:name]
+  t.save
+end
+puts "There are now #{Theme.count} theaters in the database"

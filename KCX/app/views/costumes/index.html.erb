@@ -1,23 +1,19 @@
 <h1>Costumes</h1>
 
-<p><%= link_to 'Add a New Costume', new_costume_url %></p>
+<%= link_to 'Add a New Costume', new_costume_url %></p>
 
 <table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+
 
   <tbody>
   <% @costumes.each do |costume| %>
     <tr>
-  
-      <td><%= link_to 'Show', costume_url(costume) %></td>
-      <td><%= link_to 'Edit', edit_costume_url(costume) %></td>
-      <td><%= link_to 'Destroy', costume_url(costume), method: 'delete', data: { confirm: "Do you really want to delete this costume?" } %></td>
+      <td>
+        <%= link_to 'Show', costume_url(costume) %>
+        <%= link_to 'Edit', edit_costume_url(costume) %>
+        <%= link_to 'Destroy', costume_url(costume), method: 'delete', data: { confirm: "Do you really want to delete this costume?" } %>
+        <%= link_to costume.description, costume_url(costume) %>
+      </td>
 
     </tr>
   <% end %>
