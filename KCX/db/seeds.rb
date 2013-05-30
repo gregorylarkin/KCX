@@ -8,7 +8,8 @@
 
 Costume.destroy_all
 
-data = [{description: "Pirate"}, { description: "Surfer Dude"}]
+data = [{description: "Pirate", price: "1", currency: "Case of Beer"},
+        {description: "Surfer Dude", price: "14.99", currency: "dollars"}]
 
 data.each do |costume_info|
   m = Costume.new
