@@ -10,7 +10,7 @@
     <%= text_field_tag :description, "", size: 80, placeholder: "Enter costume description..." %>
   </p>
   <div>
-    <%= label_tag :name %><br />
+    <%= label_tag :name %>
     <%= select_tag :theme_id,
                     options_from_collection_for_select(Theme.all, :id, :name) %>
   </div>
