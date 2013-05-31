@@ -14,7 +14,10 @@ class CostumesController < ApplicationController
 
   def create
     @costume = Costume.new
-    
+    @costume.description = params[:description]
+    @costume.price = params[:price]
+    @costume.currency = params[:currency]
+
     if @costume.save
       redirect_to costumes_url
     else
@@ -28,7 +31,7 @@ class CostumesController < ApplicationController
 
   def update
     @costume = Costume.find_by_id(params[:id])
-    
+
     if @costume.save
       redirect_to costumes_url
     else
