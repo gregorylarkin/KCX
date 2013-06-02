@@ -12,7 +12,7 @@
         <%= link_to 'Show', costume_url(costume) %>
         <%= link_to 'Edit', edit_costume_url(costume) %>
         <%= link_to 'Destroy', costume_url(costume), method: 'delete', data: { confirm: "Do you really want to delete this costume?" } %>
-        <%= link_to costume.description, costume_url(costume) %>
+        <%= link_to costume.name, costume_url(costume) %>
       </td>
 
     </tr>

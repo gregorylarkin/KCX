@@ -10,7 +10,7 @@
     <%= text_field_tag :description, "", size: 80, placeholder: "Enter costume description..." %>
   </p>
   <div>
-    <%= label_tag :name %>
+    <%= label_tag :theme_id %>
     <%= select_tag :theme_id,
                     options_from_collection_for_select(Theme.all, :id, :name) %>
   </div>
@@ -22,6 +22,7 @@
     <%= label_tag :currency, "Currency" %>
     <%= text_field_tag :currency, "", size: 80, placeholder: "Are we talking $? Beer? IOUs? You decide..." %>
   </p>
+  
   <%= submit_tag "Submit" %>
 
 <% end %>

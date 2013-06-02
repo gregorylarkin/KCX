@@ -1,3 +1,9 @@
-<h1>Theme #<%= @theme.id %></h1>
+<h1> <%= @theme.name %> Party</h1>
 
+<h2> Oh we've got the perfect costume for that </h2>
 
+<ul>
+	<% @theme.costumes.each do |costume| %>
+	<li><%= link_to costume.name, costume_url(costume) %></li>
+	<% end %>
+</ul>

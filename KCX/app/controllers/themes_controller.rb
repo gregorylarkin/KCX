@@ -28,8 +28,8 @@ class ThemesController < ApplicationController
 
   def update
     @theme = Theme.find_by_id(params[:id])
-    
-    if @theme.save
+    @theme.name = params[:name]
+        if @theme.save
       redirect_to themes_url
     else
       render 'new'

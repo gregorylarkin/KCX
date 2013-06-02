@@ -1,8 +1,11 @@
-<h1>Editing Theme #<%= @theme.id %></h1>
+<h1>Editing <%= @theme.name %> Theme </h1>
 
 
 <%= form_tag(theme_url(@theme), method: 'put') do %>
-
+<p> 
+	<%= label_tag :name, "Theme Name" %>
+	<%= text_field_tag :name, @theme.name, size: 80, placeholder: "What's in a name?" %>
+</p>
   
   <div>
     <%= submit_tag "Update Theme" %>
