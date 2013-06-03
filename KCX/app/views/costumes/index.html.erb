@@ -1,22 +1,34 @@
-<h1>Costumes</h1>
+<div class="row">
+  <div class="span12">
+    <h2>Costumes</h2>
+    <p>We know the feeling, you're either desperately looking for the perfect costume, or you're trying to recoop the thousands you've spent on Amazon Prime shipments... either way, we're here to help. Check out your classmates offerings below, and feel free to add some of your own!</p>
 
-<%= link_to 'Add a New Costume', new_costume_url %></p>
+<p><%= link_to 'Add a New Costume', new_costume_url %></p>
 
-<table>
-
-
+<table class="table table-striped">
+  <thread>
+    <tr>
+      <th align="left">Name</th>
+      <th align="left">Description</th>
+      <th align="left">Price</th>
+      <th align="left">Currency</th>
+      <th align="left">Actions</th>
+    </tr>
+  </thread>
   <tbody>
   <% @costumes.each do |costume| %>
     <tr>
+      <td><%= link_to costume.name, costume_url(costume) %></td>
+      <td><%= costume.description %></td>
+      <td><%= costume.price %></td>
+      <td><%= costume.currency %></td>
       <td>
-        <%= link_to 'Show', costume_url(costume) %>
-        <%= link_to 'Edit', edit_costume_url(costume) %>
-        <%= link_to 'Destroy', costume_url(costume), method: 'delete', data: { confirm: "Do you really want to delete this costume?" } %>
-        <%= link_to costume.name, costume_url(costume) %>
+          <%= link_to 'Edit', edit_costume_url(costume), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', costume_url(costume), method: 'delete', data: {confirm: "Do you really want to delete this costume?"}, :class => 'btn btn-mini btn-danger' %>
       </td>
-
     </tr>
-  <% end %>
+    <% end %>
   </tbody>
 </table>
+
 
