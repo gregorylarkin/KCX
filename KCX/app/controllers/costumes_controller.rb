@@ -9,7 +9,9 @@ class CostumesController < ApplicationController
   end
 
   def new
-    @costume = Costume.new
+    if session["user_id"].blank?
+      redirect_to "/costumes", notice: "Please sign in first."
+    end
   end
 
   def create

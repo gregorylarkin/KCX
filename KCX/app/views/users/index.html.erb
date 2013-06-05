@@ -18,10 +18,10 @@
     <tr>
       <td><%= user.name %></td>
       <td><%= user.password %></td>
-  
+
       <td><%= link_to 'Show', user_url(user) %></td>
       <td><%= link_to 'Edit', edit_user_url(user) %></td>
-      <td><%= link_to 'Destroy', user_url(user), method: 'delete', data: { confirm: "Do you really want to delete this user?" } %></td>
+      <td><%= button_to 'Destroy', user_url(user), method: 'delete', data: { confirm: "Do you really want to delete this user?" } %></td>
 
     </tr>
   <% end %>

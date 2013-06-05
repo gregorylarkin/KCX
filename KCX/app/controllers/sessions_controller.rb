@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
     session["user_id"] = nil
     redirect_to "/costumes", notice: "Come back soon!"
   end
+
   def new
   end
 

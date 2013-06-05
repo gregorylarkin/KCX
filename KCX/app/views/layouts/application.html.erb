@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%= javascript_include_tag "application" %>
+<%= csrf_meta_tags %>
  <html>
  <head>
          <meta charset="utf-8">
@@ -21,10 +23,12 @@
                 <a href="/themes">Themes</a>
               </li>
               <% if session["user_id"].present? %>
-                You rock, <%%= User.find_by_id(session["user_id"]).name %>!
                 <li class="active">
                   <a href="/logout">Sign Out</a>
                 </li>
+                <p style="text-align: right;">
+                  Signed in as <%= User.find_by_id(session["user_id"]).name %>.
+                </p>
               <% else %>
                 <li class="active">
                   <a href="/users/new">Sign Up</a>
@@ -34,6 +38,7 @@
                 </li>
               <% end %>
            </div><!-- .hero-unit -->
+           <div class="notice"><%= notice %></div>
 
   <%= yield %>
 

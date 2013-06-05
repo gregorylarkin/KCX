@@ -1,4 +1,11 @@
 KCX::Application.routes.draw do
+
+  # Routes for the Session resource:
+  get '/login', controller: 'sessions', action: 'new'
+  post '/sessions', controller: 'sessions', action: 'create'
+  get '/logout', controller: 'sessions', action: 'destroy'
+
+
   # Routes for the User resource:
   # CREATE
   get '/users/new', controller: 'users', action: 'new', as: 'new_user'
@@ -50,10 +57,7 @@ KCX::Application.routes.draw do
   delete '/costumes/:id', controller: 'costumes', action: 'destroy', as: 'destroy_costume'
   #------------------------------
 
-  # Routes for the Session resource:
-  get '/login', controller: 'sessions', action: 'new'
-  post '/sessions', controller: 'sessions', action: 'create'
-  get '/logout', controller: 'sessions', action: 'destroy'
+
   #------------------------------
 
   # The priority is based upon order of creation:
