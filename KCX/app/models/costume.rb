@@ -1,5 +1,6 @@
 class Costume < ActiveRecord::Base
 
-  belongs_to :theme
+  has_many :theme
+  belongs_to :user
 
 end

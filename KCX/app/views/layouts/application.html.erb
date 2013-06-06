@@ -45,10 +45,11 @@
            </div>
 
            <div class="notice"><%= notice %></div>
-
+                  <%= form_tag '/search' do %>
                   <form class="navbar-search pull-left">
-                    <input type="text" class="search-query" placeholder="Search">
+                    <%= text_field_tag :term, "", placeholder: 'Search' %>
                   </form>
+                  <% end %>
 
   <%= yield %>
 

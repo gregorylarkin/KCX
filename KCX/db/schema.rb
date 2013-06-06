@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130605052848) do
+ActiveRecord::Schema.define(:version => 20130606185255) do
 
   create_table "costumes", :force => true do |t|
     t.string   "description"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20130605052848) do
     t.string   "currency"
     t.string   "name"
     t.integer  "theme_id"
+    t.integer  "user_id"
   end
 
   create_table "themes", :force => true do |t|

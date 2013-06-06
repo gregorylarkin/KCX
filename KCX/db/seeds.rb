@@ -33,3 +33,4 @@ theme_data.each do |theme_info|
   t.save
 end
 puts "There are now #{Theme.count} theaters in the database"
+

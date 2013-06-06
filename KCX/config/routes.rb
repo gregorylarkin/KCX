@@ -6,7 +6,7 @@ KCX::Application.routes.draw do
   get '/logout', controller: 'sessions', action: 'destroy'
 
   # Routes for the search resource:
-  post "/search", controller: 'cosutmes', action: 'filter'
+  post "/search", controller: 'costumes', action: 'filter'
 
   # Routes for the User resource:
   # CREATE

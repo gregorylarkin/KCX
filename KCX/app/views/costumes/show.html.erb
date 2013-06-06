@@ -1,10 +1,10 @@
 <h1> <%= @costume.name %> Costume</h1>
 
-<p> 
+<p>
 	<b>Description</b>
 	<%= @costume.description %>
 </p>
-<p> 
+<p>
 	<b>Price</b>
 	<%= @costume.price %>
 </p>
@@ -15,4 +15,20 @@
 <p>
 	<b>Themes it works for</b>
 	<%= @costume.theme_id %>
+</p>
+<p>
+  <b>Owner</b>
+  <%= User.find_by_id(@costume.user_id).name %>
+</p>
+
+<p>
+  <b>Contact the Owner:</b>
+  <address>
+  <a href="mailto: <%= User.find_by_id(@costume.user_id).email %>"><%= User.find_by_id(@costume.user_id).email %></a>
+  </address>
+</p>
+
+<p>
+  <b>Owner Phone #:</b>
+  <%= User.find_by_id(@costume.user_id).phone %>
 </p>

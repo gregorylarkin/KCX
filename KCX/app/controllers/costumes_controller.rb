@@ -21,6 +21,7 @@ class CostumesController < ApplicationController
     @costume.price = params[:price]
     @costume.currency = params[:currency]
     @costume.theme_id = params[:theme_id]
+    @costume.user_id = session["user_id"]
     if @costume.save
       redirect_to costumes_url
     else
@@ -30,7 +31,7 @@ class CostumesController < ApplicationController
 
   def filter
     search_term = params["term"]
-    @costume = Costume.where("name LIKE ?", "%#{search_term}%", search_term)
+    @costumes = Costume.where("name LIKE ?", "%#{search_term}%")
     render 'index'
   end
 
