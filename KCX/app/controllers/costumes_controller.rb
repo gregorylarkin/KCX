@@ -28,6 +28,12 @@ class CostumesController < ApplicationController
     end
   end
 
+  def filter
+    search_term = params["term"]
+    @costume = Costume.where("name LIKE ?", "%#{search_term}%", search_term)
+    render 'index'
+  end
+
   def edit
     @costume = Costume.find_by_id(params["id"])
   end
