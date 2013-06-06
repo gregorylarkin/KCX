@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130605000044) do
+ActiveRecord::Schema.define(:version => 20130605052848) do
 
   create_table "costumes", :force => true do |t|
     t.string   "description"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(:version => 20130605000044) do
   create_table "users", :force => true do |t|
     t.string "name"
     t.string "password_digest"
+    t.string "email"
+    t.text   "phone"
   end
 
 end

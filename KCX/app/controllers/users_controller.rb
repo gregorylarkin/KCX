@@ -16,10 +16,12 @@ class UsersController < ApplicationController
     @user = User.new
     @user.name = params[:name]
     @user.password = params[:password]
+    @user.phone = params[:phone]
+    @user.email = params[:email]
 
     if @user.save
       session["user_id"] = @user.id
-      redirect_to users_url
+      redirect_to costumes_url
     else
       render 'new'
     end

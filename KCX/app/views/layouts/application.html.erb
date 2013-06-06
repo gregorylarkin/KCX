@@ -9,16 +9,14 @@
  </head>
 
  <body>
-
    <div class="container">
+           <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
 
-           <div class="hero-unit">
-           <h1>Kellogg Costume Exchange</h1>
-           <p>Your one-stop-shop for a guaranteed morning of de-tagging Facebook photos.</p>
-           <ul class="nav nav-pills">
-              <li class="active">
-                <a href="/costumes">Costumes</a>
-              </li>
+              <a class="brand">Kellogg Costume Exchange</a>
+           <ul class="nav">
+              <li class="active"><a href="/costumes">Costumes</a></li>
+
               <li class="active">
                 <a href="/themes">Themes</a>
               </li>
@@ -26,9 +24,14 @@
                 <li class="active">
                   <a href="/logout">Sign Out</a>
                 </li>
+                <li>
+                  <a class="brand"> </a>
+                </li>
+                <li>
                 <p style="text-align: right;">
-                  Signed in as <%= User.find_by_id(session["user_id"]).name %>.
+                  <a class="brand">Signed in as <%= User.find_by_id(session["user_id"]).name %>.</a>
                 </p>
+              </li>
               <% else %>
                 <li class="active">
                   <a href="/users/new">Sign Up</a>
@@ -36,11 +39,20 @@
                 <li class="active">
                   <a href="/login">Login</a>
                 </li>
-              <% end %>
-           </div><!-- .hero-unit -->
+              <% end %><br><br>
+
+
+           </div>
+
            <div class="notice"><%= notice %></div>
+
+                  <form class="navbar-search pull-left">
+                    <input type="text" class="search-query" placeholder="Search">
+                  </form>
+
 
   <%= yield %>
 
 </body>
 </html>
+

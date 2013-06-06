@@ -1,5 +1,6 @@
-<h1>Themes</h1>
-
+<div class="row">
+  <div class="span12">
+    <h2>Themes</h2>
 <p><%= link_to 'Add a New Theme', new_theme_url %></p>
 
 <table>
@@ -15,10 +16,11 @@
   <% @themes.each do |theme| %>
     <tr>
 
-      <td><%= link_to 'Show', theme_url(theme) %></td>
-      <td><%= link_to 'Edit', edit_theme_url(theme) %></td>
-      <td><%= link_to 'Destroy', theme_url(theme), method: 'delete', data: { confirm: "Do you really want to delete this theme?" } %></td>
-       <td><%= link_to theme.name, theme_url(theme) %></td>
+      <td><%= link_to theme.name, theme_url(theme) %></td>
+      <td>
+      <%= link_to 'Edit', edit_theme_url(theme), :class => 'btn btn-mini' %>
+      <%= button_to 'Destroy', theme_url(theme), method: 'delete', data: { confirm: "Do you really want to delete this theme?" }, :class => 'btn btn-mini btn-danger' %>
+      </td>
 
     </tr>
   <% end %>

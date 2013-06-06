@@ -9,12 +9,15 @@ class ThemesController < ApplicationController
   end
 
   def new
-    @theme = Theme.new
+    if session["user_id"].blank?
+      redirect_to "/themes", notice: "Please sign in first."
+    end
   end
 
   def create
     @theme = Theme.new
-    
+    @theme.name = params[:name]
+
     if @theme.save
       redirect_to themes_url
     else
