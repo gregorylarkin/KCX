@@ -2,7 +2,7 @@
   <div class="span12">
 <h2>Add a New Costume</h2>
 
-<%= form_tag "/costumes" do %>
+<%= form_tag "/costumes", :html => {:multipart => true} do %>
  <p>
     <%= label_tag :name, "Costume Name" %>
     <%= text_field_tag :name, "", size: 80, placeholder: "Costume name..." %>
@@ -24,7 +24,10 @@
     <%= label_tag :currency, "Currency" %>
     <%= text_field_tag :currency, "", size: 80, placeholder: "Are we talking $? Beer? IOUs? You decide..." %>
   </p>
-
+  <p>Upload a photo</p>
+  <p>
+    <input type="file" class="input_file">
+<p>
   <%= submit_tag "Submit" %>
-
+</p>
 <% end %>
