@@ -24,7 +24,7 @@ theme_data.each do |theme_info|
   t.name = theme_info[:name]
   t.save
 end
-puts "There are now #{Theme.count} theaters in the database"
+puts "There are now #{Theme.count} themes in the database"
 
 Costume.destroy_all
 
@@ -39,9 +39,26 @@ data.each do |costume_info|
   m.price = costume_info[:price]
   m.currency = costume_info[:currency]
   m.user_id = User.first.id
-  m.theme_id = Theme.first.id
   m.save
 end
 
 puts "There are now #{Costume.count} costumes in the database"
 
+Ragefest.destroy_all
+costumes = Costume.all
+themes = Theme.all 
+
+r = Ragefest.new 
+r.costume_id = costumes.first.id
+r.theme_id = themes.last.id
+r.save 
+r = Ragefest.new 
+r.costume_id = costumes.last.id
+r.theme_id = themes.last.id
+r.save 
+r = Ragefest.new 
+r.costume_id = costumes.last.id
+r.theme_id = themes.first.id
+r.save 
+
+puts "There are now #{Ragefest.count} ragefests in the database" 

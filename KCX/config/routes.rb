@@ -1,5 +1,8 @@
 KCX::Application.routes.draw do
 
+  resources :ragefests
+
+
   # Routes for the Session resource:
   get '/login', controller: 'sessions', action: 'new'
   post '/sessions', controller: 'sessions', action: 'create'

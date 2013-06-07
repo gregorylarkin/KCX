@@ -1,0 +1,27 @@
+<h1>Listing ragefests</h1>
+
+<table>
+  <tr>
+    <th>Costume</th>
+    <th>Theme</th>
+    <th>Party time</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @ragefests.each do |ragefest| %>
+  <tr>
+    <td><%= ragefest.costume_id %></td>
+    <td><%= ragefest.theme_id %></td>
+    <td><%= ragefest.party_time %></td>
+    <td><%= link_to 'Show', ragefest %></td>
+    <td><%= link_to 'Edit', edit_ragefest_path(ragefest) %></td>
+    <td><%= link_to 'Destroy', ragefest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ragefest', new_ragefest_path %>

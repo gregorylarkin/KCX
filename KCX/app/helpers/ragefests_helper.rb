@@ -1,0 +1,2 @@
+module RagefestsHelper
+end

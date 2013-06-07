@@ -1,0 +1,29 @@
+<%= form_for(@ragefest) do |f| %>
+  <% if @ragefest.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ragefest.errors.count, "error") %> prohibited this ragefest from being saved:</h2>
+
+      <ul>
+      <% @ragefest.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :costume_id %><br />
+    <%= f.number_field :costume_id %>
+  </div>
+  <div class="field">
+    <%= f.label :theme_id %><br />
+    <%= f.number_field :theme_id %>
+  </div>
+  <div class="field">
+    <%= f.label :party_time %><br />
+    <%= f.datetime_select :party_time %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
