@@ -11,11 +11,7 @@
     <%= label_tag :description, "Description" %>
     <%= text_field_tag :description, "", size: 80, placeholder: "Enter costume description..." %>
   </p>
-  <div>
-    <%= label_tag :theme_id %>
-    <%= select_tag :theme_id,
-                    options_from_collection_for_select(Theme.all, :id, :name) %>
-  </div>
+
   <p>
     <%= label_tag :price, "Price" %>
     <%= number_field_tag :price, value = nil, options = {} %>
@@ -24,10 +20,11 @@
     <%= label_tag :currency, "Currency" %>
     <%= text_field_tag :currency, "", size: 80, placeholder: "Are we talking $? Beer? IOUs? You decide..." %>
   </p>
-  <p>Upload a photo</p>
-  <p>
-    <input type="file" class="input_file">
-<p>
+    <p>
+    <%= label_tag :image_remote_url, "Enter Image URL" %>
+    <%= text_field_tag :image_remote_url, "", size:80 %>
+  </p>
+
   <%= submit_tag "Submit" %>
-</p>
+
 <% end %>

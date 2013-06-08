@@ -1,6 +1,6 @@
 <h1> <%= @costume.name %> Costume</h1>
 
-<%= image_tag @costume.photo.url %>
+<%= image_tag(@costume.image_remote_url, :size => "250x250") %>
 
 <p>
 	<b>Description</b>
@@ -16,22 +16,28 @@
 </p>
 <p>
 	<b>Themes it works for</b>
-	<li> <%= @costume.themes %> </li>
+
+  <% @costume.themes.each do |f| %>
+  <li><%= f.name %></li>
+
+  <% end %>
+
+
 
 </p>
 <p>
   <b>Owner</b>
-  <%= User.find_by_id(@costume.user_id).name %>
+  <%= @costume.user.name %>
 </p>
 
 <p>
   <b>Contact the Owner:</b>
-  <address>
-  <a href="mailto: <%= User.find_by_id(@costume.user_id).email %>"><%= User.find_by_id(@costume.user_id).email %></a>
-  </address>
+  <li><address>
+  <a href="mailto: <%= @costume.user.email %>"><%= @costume.user.email %></a>
+  </address></li>
 </p>
 
 <p>
-  <b>Owner Phone #:</b>
-  <%= User.find_by_id(@costume.user_id).phone %>
+  <li>Phone #:</b>
+  <%= @costume.user.phone %></li>
 </p>

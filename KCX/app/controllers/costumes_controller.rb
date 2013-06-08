@@ -20,8 +20,8 @@ class CostumesController < ApplicationController
     @costume.description = params[:description]
     @costume.price = params[:price]
     @costume.currency = params[:currency]
-    @costume.theme_id = params[:theme_id]
     @costume.user_id = session["user_id"]
+    @costume.image_remote_url = params[:image_remote_url]
     if @costume.save
       redirect_to costumes_url
     else
