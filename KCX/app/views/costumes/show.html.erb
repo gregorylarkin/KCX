@@ -1,43 +1,46 @@
-<h1> <%= @costume.name %> Costume</h1>
+<div class="row">
+  <div class="span12"><h1> <%= @costume.name %> Costume</h1></div>
+</div>
+  <div class="row-fluid">
+    <div class="span6"><%= image_tag(@costume.image_remote_url, :size => "250x250", :style => "float :left") %></div>
+    <div class="span6">
+    <p>
+  	<b>Description</b>
+  	<%= @costume.description %>
+    </p>
+    <p>
+  	<b>Price</b>
+  	<%= @costume.price %>
+    </p>
+    <p>
+	  <b>Currency</b>
+	  <%= @costume.currency %>
+    </p>
+    <p>
+	  <b>Themes it works for</b>
 
-<%= image_tag(@costume.image_remote_url, :size => "250x250") %>
+    <% @costume.themes.each do |f| %>
+    <li><%= f.name %></li>
+    <% end %>
+    </p>
+    <p>
+    <b>Owner</b>
+    <%= @costume.user.name %>
+    </p>
 
-<p>
-	<b>Description</b>
-	<%= @costume.description %>
-</p>
-<p>
-	<b>Price</b>
-	<%= @costume.price %>
-</p>
-<p>
-	<b>Currency</b>
-	<%= @costume.currency %>
-</p>
-<p>
-	<b>Themes it works for</b>
+    <p>
+    <b>Contact the Owner:</b>
+      <li><address>
+      <a href="mailto: <%= @costume.user.email %>"><%= @costume.user.email %></a>
+      </address></li>
+    </p>
 
-  <% @costume.themes.each do |f| %>
-  <li><%= f.name %></li>
+    <p>
+      <li>Phone #:</b>
+      <%= @costume.user.phone %></li>
+    </p>
+    </div>
+  </div>
+</div>
+</div>
 
-  <% end %>
-
-
-
-</p>
-<p>
-  <b>Owner</b>
-  <%= @costume.user.name %>
-</p>
-
-<p>
-  <b>Contact the Owner:</b>
-  <li><address>
-  <a href="mailto: <%= @costume.user.email %>"><%= @costume.user.email %></a>
-  </address></li>
-</p>
-
-<p>
-  <li>Phone #:</b>
-  <%= @costume.user.phone %></li>
-</p>
