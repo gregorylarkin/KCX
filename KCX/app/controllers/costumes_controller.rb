@@ -12,6 +12,7 @@ class CostumesController < ApplicationController
     if session["user_id"].blank?
       redirect_to "/costumes", notice: "Please sign in first."
     end
+    @costume = Costume.new
   end
 
   def create
@@ -22,6 +23,7 @@ class CostumesController < ApplicationController
     @costume.currency = params[:currency]
     @costume.user_id = session["user_id"]
     @costume.image_remote_url = params[:image_remote_url]
+    @costume.attributes = {'theme_ids' =>[]}.merge(params[:costume]||{})
     if @costume.save
       redirect_to costumes_url
     else

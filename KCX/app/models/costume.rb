@@ -3,9 +3,10 @@ class Costume < ActiveRecord::Base
 
 require 'open-uri'
 
-has_many :ragefests
+has_many :ragefests 
   has_many :themes, :through => :ragefests
   belongs_to :user
+  attr_accessible :theme_ids, :theme_names
   accepts_nested_attributes_for :ragefests, :allow_destroy => true
 
 

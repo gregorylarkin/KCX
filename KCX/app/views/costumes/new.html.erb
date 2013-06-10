@@ -25,6 +25,20 @@
     <%= text_field_tag :image_remote_url, "", size:80 %>
   </p>
 
-  <%= submit_tag "Submit" %>
 
-<% end %>
+<%= label_tag :theme_id, "Themes it goes with" %> 
+<% Theme.all.each do |theme| -%>
+  <div>
+    <%= check_box_tag :theme_ids, theme.id, @costume.themes.include?(theme), :name =>'costume[theme_ids][]'  -%>
+    <%= label_tag :theme_ids, theme.id -%>
+  </div>
+  
+  <% end %>
+ 
+ <div>
+  <%= submit_tag "Submit"-%>
+ </div>
+ <%end%>
+
+ 
+

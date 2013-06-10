@@ -19,20 +19,23 @@
     <%= text_field_tag :currency, @costume.currency, size: 80, placeholder: "Lets keep it PG..." %>
   </p>
 <p>
-  <%= form_for(@costume) do |f| %>
-  <%= f.fields_for :themes do |theme_fields| %>
-  <%= collection_select(:costume, 
-              Theme.all(:order=>"name ASC"), 
-              :id, :name, {:selected =>:theme_name, :include_blank => true}, {:multiple => true}) %>
-              <%end%>
-              <%end%>
+<%= label_tag :theme_id, "Themes it goes with" %> 
+<% form_for @costume do -%>
+<% Costume.all.each do |theme| -%>
+  <div>
+    <%= check_box_tag :theme_ids, theme.id, @costume.themes.include?(theme), :name =>'costume[theme_ids][]'  -%>
+    <%= label_tag :theme_ids, theme.id -%>
+  </div>
+  <% end -%>
+  <%= submit_tag -%>
+  <% end -%>
 </p>
 
- <p>
+<!--  <p>
     <%= label_tag :theme_id, "Themes it goes with" %>
     <%= check_box_tag :theme_id, options_from_collection_for_select(Theme.all, :id, :name) %>
   </p>
-  
+   -->
 
 
     <%= submit_tag "Update Costume" %>
