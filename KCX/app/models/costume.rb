@@ -6,6 +6,7 @@ require 'open-uri'
 has_many :ragefests
   has_many :themes, :through => :ragefests
   belongs_to :user
+  accepts_nested_attributes_for :ragefests, :allow_destroy => true
 
 
 private
