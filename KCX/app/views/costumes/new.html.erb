@@ -26,19 +26,19 @@
   </p>
 
 
-<%= label_tag :theme_id, "Themes it goes with" %> 
+<%= label_tag :theme_id, "Themes it goes with" %>
 <% Theme.all.each do |theme| -%>
   <div>
     <%= check_box_tag :theme_ids, theme.id, @costume.themes.include?(theme), :name =>'costume[theme_ids][]'  -%>
-    <%= label_tag :theme_ids, theme.id -%>
+    <%= label_tag :theme_ids, theme.name -%>
   </div>
-  
+
   <% end %>
- 
+
  <div>
   <%= submit_tag "Submit"-%>
  </div>
  <%end%>
 
- 
+
 
