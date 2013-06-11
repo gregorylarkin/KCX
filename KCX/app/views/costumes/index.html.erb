@@ -2,6 +2,12 @@
   <div class="span12">
     <h2>Costumes</h2>
     <p>We know the feeling, you're either desperately looking for the perfect costume, or you're trying to recoop the thousands you've spent on Amazon Prime shipments... either way, we're here to help. Check out your classmates offerings below, and feel free to add some of your own!</p>
+               <div class="notice"><%= notice %></div>
+                  <%= form_tag '/search' do %>
+                  <form class="navbar-search pull-left">
+                    <%= text_field_tag :term, "", placeholder: 'Search' %>
+                  </form>
+                  <% end %>
 
 <p><%= link_to 'Add a New Costume', new_costume_url %></p>
 
