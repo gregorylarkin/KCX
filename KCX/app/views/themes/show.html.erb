@@ -1,9 +1,13 @@
-<h1> <%= @theme.name %> Party</h1>
+<h2> <%= @theme.name %> Theme</h2>
 
-<h2> Oh we've got the perfect costume for that </h2>
+<% if @theme.costumes.find(:all).empty? %>
+  <h3> No costumes assigned to this theme yet.</h3>
+  <% else %>
+  <h3> Oh we've got the perfect costume for that </h3>
 
-<ul>
-	<% @theme.costumes.each do |costume| %>
-	<li><%= link_to costume.name, costume_url(costume) %></li>
-	<% end %>
+  <ul>
+	 <% @theme.costumes.each do |costume| %>
+	 <li><%= link_to costume.name, costume_url(costume) %></li>
+	 <% end %>
+<% end %>
 </ul>

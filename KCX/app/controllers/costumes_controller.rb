@@ -38,6 +38,9 @@ class CostumesController < ApplicationController
   end
 
   def edit
+    if session["user_id"].blank?
+      redirect_to "/costumes", notice: "Must sign in to edit costumes."
+    end
     @costume = Costume.find_by_id(params["id"])
   end
 
@@ -47,13 +50,19 @@ class CostumesController < ApplicationController
     @costume.currency = params[:currency]
     @costume.name = params[:name]
     @costume.description = params[:description]
+    @costume.attributes = {'theme_ids' =>[]}.merge(params[:costume]||{})
+    @costume.image_remote_url = params[:image_remote_url]
     @costume.save
       redirect_to costumes_url
   end
 
   def destroy
+    if session["user_id"].blank?
+      redirect_to "/costumes", notice: "Must sign in to destroy costumes."
+    else
     @costume = Costume.find_by_id(params[:id])
     @costume.destroy
     redirect_to costumes_url
+    end
   end
 end

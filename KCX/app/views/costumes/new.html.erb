@@ -4,6 +4,9 @@
 
  <div class="row-fluid">
   <div class="span6">
+  <% @costume.errors.each do |attr, msg| %>
+  <%= "#{attr} #{msg}" if @costume.errors[attr].first == msg %>
+  <% end %>
 <%= form_tag "/costumes", :html => {:multipart => true} do %>
  <p>
     <%= label_tag :name, "Costume Name" %>

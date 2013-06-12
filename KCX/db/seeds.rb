@@ -16,8 +16,9 @@ User.destroy_all
 puts "There is now #{User.count} user in the database"
 
 Theme.destroy_all
-theme_data = [{name: "90s"},
-                { name: "White Party"}]
+theme_data = [{name: "90s"}, {name: "White Party"},
+              {name: "Neon Party"}, {name: "Nautical"},
+              {name: "Birthday"}, {name: "Disco"}]
 
 theme_data.each do |theme_info|
   t = Theme.new
